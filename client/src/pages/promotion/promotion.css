@@ -1,0 +1,108 @@
+.promotion-banner{
+ background: url("../../assets/promotionbg.png"),linear-gradient(90deg,var( --darkBlue) 0%, var(--main-color) 100%);   
+ /* background-color: (90deg, #374992 0%, #4675D2 100%); */
+ background-position: center;
+ background-size: cover;
+ object-fit: cover;
+ padding: 10px;
+ position: relative;
+}
+.imgfilter{
+  filter: hue-rotate(112deg);
+
+}
+.promotion-banner::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 4rem;
+    z-index: 1;
+    background-color: var(--bgbody);
+}
+.picker-botom-hilight{
+    position: absolute;
+    top: 45%;
+    height: 3rem;
+    background-color: var(--bg-color-l);
+    width: 100%;
+}
+
+.css-1q2h7u5 {
+  color: #141414 !important;
+}
+
+.App {
+    font-family: sans-serif;
+    text-align: center;
+    margin: 20px;
+    color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  .WheelPicker {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+  }
+  
+
+
+
+  .text-lv{
+  
+    background: linear-gradient(180deg, var(--yellow-1) 0%, var(--yellow-2) 56.13%, var(--yellow-3) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+
+
+  
+
+  .subordinate-record  .css-1h9z7r5-MuiButtonBase-root-MuiTab-root{
+      border-radius: 10px;
+      width: 33%;
+      background: var( --bg-nav);
+      color: var(--grey-100);
+      font-weight: 500;
+      text-transform: capitalize;
+      font-size: 14px;
+  }
+  
+  .subordinate-record  .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+     background:var(--Gradient-1, linear-gradient(93deg, var(--mediam-blue) 7.38%, var(--bgblue) 94.48%));;
+     color:white;
+     border: none;
+  }
+  .subordinate-record  .css-1aquho2-MuiTabs-indicator{
+      display: none;
+  }
+
+  .justice{
+    background: url('../../assets/bg1-d6d02e9f.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.slide{
+background: url('../../assets/poster.png');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+width: 100%;
+}
+.promotsio svg{
+  color: gray;
+}

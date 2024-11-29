@@ -1,0 +1,693 @@
+[data-v-8a63ad61]:root {
+    --van-picker-background: #22275B;
+    --van-picker-option-text-color: #fff;
+    --van-border-color: rgba(55, 73, 146, .5);
+    --van-picker-mask-color: linear-gradient(180deg, rgba(34, 39, 91, .9), rgba(34, 39, 91, .4)), linear-gradient(0deg, rgba(34, 39, 91, .9), rgba(34, 39, 91, .4));
+    --van-text-color: #fff;
+    --van-popup-background: var(--van-picker-background);
+    --van-dialog-background: var(--van-picker-background);
+    --van-dialog-has-title-message-text-color: #fff
+}
+
+.van-toast[data-v-8a63ad61] {
+    word-break: break-word !important
+}
+
+.cg-default.van-button[data-v-8a63ad61] {
+    box-shadow: 0 .05333rem #e04846;
+    font-weight: 700;
+    font-size: .4rem
+}
+
+.cg-default.van-button .van-button__icon[data-v-8a63ad61] {
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center
+}
+
+.cg-default.van-button .van-button__icon>img[data-v-8a63ad61] {
+    height: 80%
+}
+
+.minGame_container[data-v-8a63ad61] {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: .45333rem;
+    margin-bottom: .4rem
+}
+
+.minGame_container.all_game[data-v-8a63ad61] {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: .34667rem
+}
+
+.minGame_container.all_game .onlineGamesItem[data-v-8a63ad61],
+.minGame_container.all_game .onlineGamesItem .fish_img[data-v-8a63ad61],
+.minGame_container.all_game .onlineGamesItem .min_game_img[data-v-8a63ad61] {
+    width: 2.96rem;
+    height: 3.73333rem;
+    border-radius: .26667rem
+}
+
+.minGame_container .onlineGamesItem[data-v-8a63ad61] {
+    width: 2.96rem;
+    height: 3.73333rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    background: -webkit-linear-gradient(297deg, #374992 5.33%, #4675D2 93.42%);
+    background: linear-gradient(153deg, #374992 5.33%, #4675D2 93.42%);
+    box-shadow: 0 -.05333rem .16rem #92a7ff inset;
+    grid-gap: .18667rem
+}
+
+.minGame_container .onlineGamesItem .fish_img[data-v-8a63ad61] {
+    width: 3.2rem;
+    height: 3.2rem
+}
+
+.minGame_container .onlineGamesItem .min_game_img[data-v-8a63ad61] {
+    width: 3.25333rem;
+    height: 3.25333rem
+}
+
+[data-v-2f622647]:root {
+    --van-picker-background: #22275B;
+    --van-picker-option-text-color: #fff;
+    --van-border-color: rgba(55, 73, 146, .5);
+    --van-picker-mask-color: linear-gradient(180deg, rgba(34, 39, 91, .9), rgba(34, 39, 91, .4)), linear-gradient(0deg, rgba(34, 39, 91, .9), rgba(34, 39, 91, .4));
+    --van-text-color: #fff;
+    --van-popup-background: var(--van-picker-background);
+    --van-dialog-background: var(--van-picker-background);
+    --van-dialog-has-title-message-text-color: #fff
+}
+
+.van-toast[data-v-2f622647] {
+    word-break: break-word !important
+}
+
+.cg-default.van-button[data-v-2f622647] {
+    box-shadow: 0 .05333rem #e04846;
+    font-weight: 700;
+    font-size: .4rem
+}
+
+.cg-default.van-button .van-button__icon[data-v-2f622647] {
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center
+}
+
+.cg-default.van-button .van-button__icon>img[data-v-2f622647] {
+    height: 80%
+}
+
+.lotterySlotItem[data-v-2f622647] {
+    position: relative;
+    width: 100%;
+    height: 2.26667rem;
+    text-align: end;
+    background: -webkit-linear-gradient(297deg, #374992 5.33%, #4675D2 93.42%);
+    background: linear-gradient(153deg, #374992 5.33%, #4675D2 93.42%);
+    box-shadow: 0 -.05333rem .16rem #92a7ff inset;
+    margin-bottom: .26667rem;
+    border-radius: .53333rem
+}
+
+.lotterySlotItem img[data-v-2f622647] {
+    height: 100%
+}
+
+.lotterySlotItem span[data-v-2f622647] {
+    position: absolute;
+    top: .26667rem;
+    left: .4rem;
+    color: #fff;
+    white-space: break-spaces;
+    font-weight: 700;
+    font-size: .46667rem
+}
+
+.lotterySlotItem h4[data-v-2f622647] {
+    color: #f4f5f8;
+    font-weight: 400;
+    font-size: .29333rem;
+    position: absolute;
+    bottom: .26667rem;
+    left: .4rem;
+    /* white-space: pre-wrap; */
+    text-align: left;
+    line-height: .46667rem
+}
+
+[data-v-3577025d]:root {
+    --van-picker-background: #22275B;
+    --van-picker-option-text-color: #fff;
+    --van-border-color: rgba(55, 73, 146, .5);
+    --van-picker-mask-color: linear-gradient(180deg, rgba(34, 39, 91, .9), rgba(34, 39, 91, .4)), linear-gradient(0deg, rgba(34, 39, 91, .9), rgba(34, 39, 91, .4));
+    --van-text-color: #fff;
+    --van-popup-background: var(--van-picker-background);
+    --van-dialog-background: var(--van-picker-background);
+    --van-dialog-has-title-message-text-color: #fff
+}
+
+.van-toast[data-v-3577025d] {
+    word-break: break-word !important
+}
+
+.cg-default.van-button[data-v-3577025d] {
+    box-shadow: 0 .05333rem #e04846;
+    font-weight: 700;
+    font-size: .4rem
+}
+
+.cg-default.van-button .van-button__icon[data-v-3577025d] {
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center
+}
+
+.cg-default.van-button .van-button__icon>img[data-v-3577025d] {
+    height: 80%
+}
+
+.onlineGamesItem__container[data-v-3577025d] {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: .21333rem;
+    margin-bottom: .82667rem
+}
+
+.onlineGamesItem__container.allGame[data-v-3577025d] {
+    grid-template-columns: repeat(3, 1fr)
+}
+
+.onlineGamesItem__container.allGame .item[data-v-3577025d],
+.onlineGamesItem__container.allGame .item .gameImg[data-v-3577025d] {
+    width: 2.96rem;
+    height: 3.73333rem
+}
+
+.onlineGamesItem__container .item[data-v-3577025d] {
+    width: 3.36rem;
+    height: 4.26667rem;
+    background: -webkit-linear-gradient(297deg, #374992 5.33%, #4675D2 93.42%);
+    background: linear-gradient(153deg, #374992 5.33%, #4675D2 93.42%);
+    box-shadow: 0 -.05333rem .16rem #92a7ff inset;
+    border-radius: .26667rem
+}
+
+.onlineGamesItem__container .item .gameImg[data-v-3577025d] {
+    width: 3.36rem;
+    height: 4.26667rem;
+    border-radius: .26667rem
+}
+
+.onlineGamesItem__container .gameImg[data-v-3577025d] {
+    object-fit: contain
+}
+
+[data-v-8f172349]:root {
+    --van-picker-background: #22275B;
+    --van-picker-option-text-color: #fff;
+    --van-border-color: rgba(55, 73, 146, .5);
+    --van-picker-mask-color: linear-gradient(180deg, rgba(34, 39, 91, .9), rgba(34, 39, 91, .4)), linear-gradient(0deg, rgba(34, 39, 91, .9), rgba(34, 39, 91, .4));
+    --van-text-color: #fff;
+    --van-popup-background: var(--van-picker-background);
+    --van-dialog-background: var(--van-picker-background);
+    --van-dialog-has-title-message-text-color: #fff
+}
+
+.van-toast[data-v-8f172349] {
+    word-break: break-word !important
+}
+
+.cg-default.van-button[data-v-8f172349] {
+    box-shadow: 0 .05333rem #e04846;
+    font-weight: 700;
+    font-size: .4rem
+}
+
+.cg-default.van-button .van-button__icon[data-v-8f172349] {
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center
+}
+
+.cg-default.van-button .van-button__icon>img[data-v-8f172349] {
+    height: 80%
+}
+
+.hot_games .platform[data-v-8f172349],
+.hot_games .popular[data-v-8f172349] {
+    margin-bottom: .34667rem
+}
+
+.hot_games .platform .title[data-v-8f172349],
+.hot_games .popular .title[data-v-8f172349] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    margin-bottom: .21333rem;
+    color: #fff
+}
+
+.hot_games .platform .title span[data-v-8f172349],
+.hot_games .popular .title span[data-v-8f172349] {
+    font-size: .32rem;
+    line-height: .4rem
+}
+
+.hot_games .platform .list[data-v-8f172349],
+.hot_games .popular .list[data-v-8f172349] {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: .18667rem
+}
+
+.hot_games .platform .list .item[data-v-8f172349],
+.hot_games .popular .list .item[data-v-8f172349] {
+    width: 2.21333rem;
+    position: relative;
+    height: 2.21333rem;
+    background: -webkit-linear-gradient(297deg, #374992 5.33%, #4675D2 93.42%);
+    background: linear-gradient(153deg, #374992 5.33%, #4675D2 93.42%);
+    box-shadow: 0 -.05333rem .16rem #92a7ff inset;
+    border-radius: .21333rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    margin-bottom: .16rem
+}
+
+.hot_games .platform .list .item img[data-v-8f172349],
+.hot_games .popular .list .item img[data-v-8f172349] {
+    width: 2rem;
+    height: 2rem;
+    border-radius: .21333rem
+}
+
+.hot_games .platform .list .item .hot_bage[data-v-8f172349],
+.hot_games .popular .list .item .hot_bage[data-v-8f172349] {
+    position: absolute;
+    right: -.08rem;
+    top: -.10667rem;
+    width: .50667rem;
+    height: .48rem
+}
+
+.hot_games .pupularAll .list .item[data-v-8f172349],
+.hot_games .platformAll .list .item[data-v-8f172349] {
+    width: 2.88rem;
+    height: 2.88rem
+}
+
+.hot_games .pupularAll .list .item img[data-v-8f172349],
+.hot_games .platformAll .list .item img[data-v-8f172349] {
+    width: 2.66667rem;
+    height: 2.66667rem
+}
+
+.hot_games .look_all[data-v-8f172349] {
+    width: 100%;
+    height: 1.06667rem;
+    border: .01333rem solid #61A9FF;
+    border-radius: .53333rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    font-size: .34667rem;
+    color: #61a9ff
+}
+
+.hot_games .look_all img[data-v-8f172349] {
+    width: .64rem;
+    height: .64rem;
+    margin-right: .18667rem
+}
+
+.hot_games .gameRec[data-v-8f172349],
+.hot_games .hotGames[data-v-8f172349] {
+    width: .48rem;
+    height: .48rem;
+    margin-right: .16rem
+}
+
+.hot_games[data-v-8f172349] .hotGames g path {
+    fill: #43b5ec
+}
+
+:root {
+    --van-picker-background: #22275B;
+    --van-picker-option-text-color: #fff;
+    --van-border-color: rgba(55, 73, 146, .5);
+    --van-picker-mask-color: linear-gradient(180deg, rgba(34, 39, 91, .9), rgba(34, 39, 91, .4)), linear-gradient(0deg, rgba(34, 39, 91, .9), rgba(34, 39, 91, .4));
+    --van-text-color: #fff;
+    --van-popup-background: var(--van-picker-background);
+    --van-dialog-background: var(--van-picker-background);
+    --van-dialog-has-title-message-text-color: #fff
+}
+
+.van-toast {
+    word-break: break-word !important
+}
+
+.cg-default.van-button {
+    box-shadow: 0 .05333rem #e04846;
+    font-weight: 700;
+    font-size: .4rem
+}
+
+.cg-default.van-button .van-button__icon {
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center
+}
+
+.cg-default.van-button .van-button__icon>img {
+    height: 80%
+}
+
+.gamesList__container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    padding: 0 .32rem
+}
+
+.gamesList__container-title {
+    margin-top: .34667rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    margin-bottom: .32rem;
+    color: #fff;
+    font-size: .4rem;
+    font-weight: 600
+}
+
+.gamesList__container-title:before {
+    content: "";
+    display: block;
+    width: .08rem;
+    height: .4rem;
+    background: #759FDE;
+    margin-right: .13333rem
+}
+
+.gamesList__container-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: .41333rem .26667rem
+}
+
+.gamesList__container-list__item {
+    width: 2.88rem;
+    min-height: 2.13333rem;
+    max-height: 3.46667rem;
+    background: -webkit-linear-gradient(297deg, #374992 5.33%, #4675D2 93.42%);
+    background: linear-gradient(153deg, #374992 5.33%, #4675D2 93.42%);
+    border-radius: .53333rem;
+    position: relative
+}
+
+.gamesList__container-list__item .lottery_text {
+    color: #fff;
+    font-size: .4rem;
+    font-weight: 700;
+    position: absolute;
+    top: .37333rem;
+    left: .26667rem
+}
+
+.gamesList__container-list__item .item_default {
+    width: 100%;
+    height: 100%;
+    border-radius: .53333rem;
+    object-fit: fill !important
+}
+
+.gamesList__container-list__item .item_img {
+    height: 2rem;
+    object-fit: cover;
+    position: absolute;
+    border-radius: .53333rem;
+    left: .26667rem
+}
+
+.gamesList__container-list__item .lottery_img {
+    max-width: 2rem;
+    height: 2rem;
+    object-fit: cover;
+    position: absolute;
+    border-radius: .53333rem;
+    right: .26667rem
+}
+
+.gamesList__container-list__item .logo_img {
+    position: absolute;
+    top: .13333rem;
+    right: .37333rem;
+    width: 1.30667rem
+}
+
+.gamesList__container-other {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    margin-top: .26667rem;
+    color: #999;
+    font-size: .32rem;
+    font-weight: 500;
+    cursor: pointer
+}
+
+.gamesList__container-other__item {
+    width: 100%;
+    height: 2.66667rem
+}
+
+[data-v-8cc9e531]:root {
+    --van-picker-background: #22275B;
+    --van-picker-option-text-color: #fff;
+    --van-border-color: rgba(55, 73, 146, .5);
+    --van-picker-mask-color: linear-gradient(180deg, rgba(34, 39, 91, .9), rgba(34, 39, 91, .4)), linear-gradient(0deg, rgba(34, 39, 91, .9), rgba(34, 39, 91, .4));
+    --van-text-color: #fff;
+    --van-popup-background: var(--van-picker-background);
+    --van-dialog-background: var(--van-picker-background);
+    --van-dialog-has-title-message-text-color: #fff
+}
+
+.van-toast[data-v-8cc9e531] {
+    word-break: break-word !important
+}
+
+.cg-default.van-button[data-v-8cc9e531] {
+    box-shadow: 0 .05333rem #e04846;
+    font-weight: 700;
+    font-size: .4rem
+}
+
+.cg-default.van-button .van-button__icon[data-v-8cc9e531] {
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center
+}
+
+.cg-default.van-button .van-button__icon>img[data-v-8cc9e531] {
+    height: 80%
+}
+
+[data-v-8cc9e531]:root {
+    --van-tabs-card-height: auto
+}
+
+.allGames__container[data-v-8cc9e531] {
+    overflow: hidden
+}
+
+.allGames__container .alGames__container-sticky[data-v-8cc9e531] {
+    padding: 0 .32rem
+}
+
+.allGames__container[data-v-8cc9e531] .van-nav-bar {
+    background: #f7f8ff
+}
+
+.allGames__container[data-v-8cc9e531] .van-nav-bar .van-nav-bar__content .van-nav-bar__left .van-icon {
+    color: #333
+}
+
+.allGames__container .tabs[data-v-8cc9e531] {
+    background: transparent
+}
+
+.allGames__container .tab_item[data-v-8cc9e531] {
+    width: 2.53333rem;
+    height: 1.33333rem;
+    margin-inline: .06667rem;
+    padding: 0;
+    color: #fff !important;
+    border-radius: .13333rem;
+    background: #374992;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center
+}
+
+.allGames__container .tab_item img[data-v-8cc9e531] {
+    height: .66667rem
+}
+
+.allGames__container .tab_item span[data-v-8cc9e531] {
+    font-size: .32rem
+}
+
+.allGames__container .tab_active[data-v-8cc9e531] {
+    color: #fff !important;
+    background: -webkit-linear-gradient(left, #2979F2 0%, #2AAAF3 100%);
+    background: linear-gradient(90deg, #2979F2 0%, #2AAAF3 100%)
+}
+
+.allGames__container[data-v-8cc9e531] .fun-tabs .fun-tab-item {
+    padding: .18667rem 0
+}
+
+.allGames__container-tabBar[data-v-8cc9e531] {
+    padding-inline: .32rem
+}
+
+.allGames__container-tabBar[data-v-8cc9e531] .van-tabs__nav--card {
+    height: 1.86667rem;
+    margin: 0
+}
+
+.allGames__container-tabBar[data-v-8cc9e531] .van-tabs__nav--card .van-tab--card {
+    width: 2.53333rem;
+    height: 1.33333rem;
+    margin-inline: .06667rem;
+    padding: 0;
+    color: #80849c !important;
+    border-radius: .13333rem;
+    background: #fff;
+    box-shadow: 0 .08rem .16rem .05333rem #d0d0ed5c
+}
+
+.allGames__container-tabBar[data-v-8cc9e531] .van-tabs__nav--card .van-tab--card>span {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%
+}
+
+.allGames__container-tabBar[data-v-8cc9e531] .van-tabs__nav--card .van-tab--card>span img {
+    width: .66667rem;
+    height: auto
+}
+
+.allGames__container-tabBar[data-v-8cc9e531] .van-tabs__nav--card .van-tab--card>span span {
+    font-size: .32rem
+}
+
+.allGames__container-tabBar[data-v-8cc9e531] .van-tabs__nav--card .van-tab--card.van-tab--active {
+    color: #fff !important;
+    background: -webkit-linear-gradient(top, #fe6868 0%, #ff8e8a 100%);
+    background: linear-gradient(180deg, #fe6868 0%, #ff8e8a 100%);
+    box-shadow: 0 -.05333rem .13333rem #fff6f4 inset, 0 .08rem .16rem #d0d0ed99
+}
+
+.allGames__container-list[data-v-8cc9e531] {
+    height: calc(100vh - 3.09334rem);
+    overflow: auto
+}

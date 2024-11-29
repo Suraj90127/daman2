@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Browse Recharge - Admin Panel</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+  <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+
+<style>
+  a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: #192434;
+  }
+
+
+.btn-group-sm>.btn, .btn-sm {
+    padding: .25rem 2.5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+}
+
+
+[class*=sidebar-dark-] .sidebar a {
+    color: #9cc6ff;
+}
+
+
+.content-wrapper {
+    background-color: #0e131b;
+}
+
+.card-header {
+    background-color: #192434;
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    padding: .75rem 1.25rem;
+    position: relative;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: white;
+}
+
+.btn-tool {
+    background-color: transparent;
+    color: #040404;
+    font-size: .875rem;
+    margin: -.75rem 0;
+    padding: .25rem .5rem;
+}
+
+.card{
+  background-color: #141b26;
+  color: white;
+}
+
+
+
+.navbar-dark {
+    background-color: #003264;
+    border-color: #557b9d;
+}
+
+.dark-mode .navbar-dark {
+    background-color: #003264;
+    border-color: #000000;
+}
+
+
+.nav-sidebar .nav-item>.nav-link {
+    margin-bottom: .2rem;
+}
+
+
+
+      </style>
+
+<body class="hold-transition sidebar-mini">
+  <div class="wrapper">
+    <%- include('nav') %>
+    <div class="content-wrapper">
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="text-white">Approve Recharge</h1>
+            </div>
+          </div>
+        </div>
+        <!-- /.container-fluid -->
+      </section>
+<div class="ml-2 mb-2">
+   <input type="text" id="search" placeholder="Enter the member you are looking for" style="background-color: #141b26;color: white;" />
+     
+          <button id="searchBtn" class="btn btn-primary">Search</button>
+               </div>
+               
+      <!-- Main content -->
+      <section class="content">
+
+        <!-- Default box -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Approve Recharge</h3>
+
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          <div class="card-body p-0" style="overflow-y: hidden;">
+            <table class="table table-striped projects">
+              <thead>
+                <tr>
+                  <th class="text-center">#</th>
+                  <th class="text-center">Account</th>
+                  <th class="text-center">Type</th>
+                  <th class="text-center">Amount</th>
+                  <th class="text-center">UTR No</th>
+                  <th class="text-center">Time</th>
+                  <th class="text-center">Order id</th>
+                  <th class="text-center">Status</th>
+                  <th class="text-center">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </div>
+  <script src="/plugins/jquery/jquery.min.js"></script>
+  <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/dist/js/adminlte.min.js"></script>
+  <script src="/js/admin/admin.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+  <script>
+ 
+ 
+ 
+ 
+ $(document).ready(function() {
+  // Capture the input value
+  let value = $('#search').val().toLowerCase();
+
+  // Function to display the data
+  function show(params, searchValue) {
+    if (params.length === 0) {
+      $('tbody').html(`
+        <tr class="text-center">
+          <td colspan="7">No data available...</td>
+        </tr>
+      `);
+      return;
+    }
+
+    let html = '';
+
+    // If searchValue is provided, filter the data
+    let filteredData = params.filter(data => {
+      return searchValue ? data.id_order && data.id_order.toString().toLowerCase().includes(searchValue) : true;
+    });
+
+    // If no matching data, show "No matching data found..."
+    if (filteredData.length === 0) {
+      $('tbody').html(`
+        <tr class="text-center">
+          <td colspan="7">No matching data found...</td>
+        </tr>
+      `);
+      return;
+    }
+
+    // Generate HTML for the filtered data
+    filteredData.forEach(data => {
+      if (data.utr !== '' && data.utr !== null) {
+        html += `<tr class="text-center">
+                  <td id="${data.id}">
+                    ${data.id}
+                  </td>
+                  <td>
+                    <b>${data.phone}</b>
+                  </td>
+                  <td>
+                    ${data.type}
+                  </td>
+                  <td>
+                    <b> ${data.type === "USDT" ? "$" + Number(data.money / 92).toFixed(2) : "₹" + data.money}</b>
+                  </td>
+                 <td style="min-width: 190px;">
+                 <b>${data.utr}</b>
+                 </td>
+                   <td style="min-width: 190px;">
+                    <b>${data.today}</b>
+                  </td>
+                   <td style="min-width: 190px;">
+                    <b>${data.id_order}</b>
+                  </td>
+                  <td class="project-state">
+                    <span class="badge badge-warning">Waiting...</span>
+                  </td>
+                  <td class="project-actions text-center" style="min-width: 160px;">
+                    <a class="btn btn-success btn-sm confirm-btn" href="" data="${data.id}"><i class="fa fa-check"></i></a>
+                    <a class="btn btn-danger btn-sm delete-btn" href="#" data="${data.id}"><i class="fas fa-trash"></i></a>
+                  </td>
+                </tr>`;
+      }
+    });
+
+    // Update the HTML content of the tbody
+    $('tbody').html(html);
+
+    // Handle confirm button click
+    $('.btn-success').click(function(e) {
+      e.preventDefault();
+      let id = $(this).attr('data');
+      $.ajax({
+        type: "POST",
+        url: "/api/webapi/admin/rechargeDuyet",
+        data: {
+          id: id,
+          type: 'confirm'
+        },
+        dataType: "json",
+        success: function(response) {
+          Swal.fire(
+            'Good job!',
+            response.message,
+            'success'
+          );
+          setTimeout(() => {
+            location.reload();
+          }, 100);
+        }
+      });
+    });
+
+    // Handle delete button click
+    $('.btn-danger').click(function(e) {
+      e.preventDefault();
+      let id = $(this).attr('data');
+      $.ajax({
+        type: "POST",
+        url: "/api/webapi/admin/rechargeDuyet",
+        data: {
+          id: id,
+          type: 'delete'
+        },
+        dataType: "json",
+        success: function(response) {
+          Swal.fire(
+            'Good job!',
+            response.message,
+            'success'
+          );
+          setTimeout(() => {
+            location.reload();
+          }, 100);
+        }
+      });
+    });
+  }
+
+  // Initial AJAX call to load all data
+  $.ajax({
+    type: "POST",
+    url: "/api/webapi/admin/recharge",
+    dataType: "json",
+    success: function(response) {
+      show(response.datas, value); // Show all data by default
+    }
+  });
+
+  // Event listener for the search input
+  $('#search').on('input', function() {
+    value = $(this).val().toLowerCase();
+    $.ajax({
+      type: "POST",
+      url: "/api/webapi/admin/recharge",
+      dataType: "json",
+      success: function(response) {
+        show(response.datas, value); // Filter and show data based on search input
+      }
+    });
+  });
+});
+
+    
+    
+   
+
+   
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deposit List</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+  <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+
+<style>
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: #192434;
+  }
+
+
+
+
+
+[class*=sidebar-dark-] .sidebar a {
+    color: #9cc6ff;
+}
+
+.content-wrapper {
+    background-color: #0e131b;
+}
+
+.card-header {
+    background-color: #192434;
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    padding: .75rem 1.25rem;
+    position: relative;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+
+.btn-tool {
+    background-color: transparent;
+    color: #040404;
+    font-size: .875rem;
+    margin: -.75rem 0;
+    padding: .25rem .5rem;
+}
+
+
+.navbar-dark {
+    background-color: #003264;
+    border-color: #557b9d;
+}
+
+.dark-mode .navbar-dark {
+    background-color: #003264;
+    border-color: #000000;
+}
+
+
+.nav-sidebar .nav-item>.nav-link {
+    margin-bottom: .2rem;
+}
+.card{
+  background-color: #141b26;
+  color: white;
+}
+
+#search{
+  background-color: #141b26;
+  outline: none;
+  border-color: #003264;
+}
+.page-link{
+  background-color: #003264;
+  border-color: #040404;
+}
+
+
+      </style>
+
+<body class="hold-transition sidebar-mini">
+  <div class="wrapper">
+    <%- include('nav') %>
+      <div class="content-wrapper">
+        <section class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1 class="text-white">Deposit List</h1>
+              </div>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </section>
+
+        <div class="form-group" style="text-align: center;">
+          <input type="text" id="search" placeholder="Enter the account to search">
+        </div>
+
+        <!-- Main content -->
+        <section class="content">
+          <!-- Default box -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Deposit List</h3>
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body p-0" style="overflow-y: hidden;">
+              <table class="table table-striped projects" id="table1">
+                <thead>
+                  <tr>
+                    <th class="text-center">#</th>
+                    <th class="text-center">Account</th>
+                    <th class="text-center">Type</th>
+                    <th class="text-center">Amount</th>
+                    <th class="text-center">UTR</th>
+                    <th class="text-center">Order id</th>
+                    <th class="text-center">Time</th>
+                    <th class="text-center">Status</th>
+                    <!-- <th class="text-center"></th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Deposit data will be displayed here -->
+                </tbody>
+              </table>
+            </div>
+            <nav aria-label="Page navigation example" style="margin-top: 20px;display: flex;justify-content: center;">
+              <ul class="pagination table1">
+                <li class="page-item previous">
+                  <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <div id="numbers" style="display: flex;"></div>
+                <li class="page-item next">
+                  <a class="page-link" href="#">Next</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </section>
+      </div>
+      <script src="/plugins/jquery/jquery.min.js"></script>
+      <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="/dist/js/adminlte.min.js"></script>
+      <script src="/js/admin/admin.js"></script>
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+      <script src="/js/admin/tables.js"></script>
+      <script>
+        function formateT(params) {
+          let result = (params < 10) ? "0" + params : params;
+          return result;
+        }
+
+        function timerJoin(params = '') {
+          let date = '';
+          if (params) {
+            date = new Date(Number(params));
+          } else {
+            date = new Date();
+          }
+          let years = formateT(date.getFullYear());
+          let months = formateT(date.getMonth() + 1);
+          let days = formateT(date.getDate());
+          return years + '-' + months + '-' + days;
+        }
+        function show(params) {
+          const PaymentMethodsMap = {
+            UPI_GATEWAY: "upi_gateway",
+            UPI_MANUAL: "upi_manual",
+            USDT_MANUAL: "usdt_manual",
+            WOW_PAY: "wow_pay",
+            USDT: "usdt",
+            SUNPAY: 'sun_pay'
+          };
+          if (params.length == 0) {
+            $('tbody').html(`
+            <tr class="text-center">
+              <td colspan="7">No more data available...</td>
+            </tr>
+          `);
+            return;
+          }
+          let html = '';
+          params.map((data) => {
+            if (data.utr !== '' && data.utr !== null) {
+              console.log(data);
+              html += `<tr class="text-center">
+                  <td id="${data.id}">
+                    ${data.id}
+                  </td>
+                  <td>
+                    <b>${data.phone}</b>
+                  </td>
+                  <td>
+                     
+                    ${`<b style="color: #3498db">${data.type}</b>`}
+                  </td>
+                  <td>
+                    <b>${data.money}</b>
+                  </td>
+                 <td style="min-width: 190px;">
+                  <b>${data.utr !== '' && data.utr !== null ? data.utr : ''}</b>
+                 </td>
+                  <td style="min-width: 190px;">
+                    <b>${data.id_order}</b>
+                  </td>
+                    <td style="min-width: 190px;">
+                    <b>${data.today}</b>
+                  </td>
+                  <td class="project-state">
+                    <span class="badge badge-${(data.status == 1) ? 'success' : 'danger'}">${(data.status == 1) ? 'Success' : 'Closed'}</span>
+                  </td>
+                  <!-- <td class="project-actions text-center" style="min-width: 160px;">
+                    <a class="btn btn-success btn-sm confirm-btn" href="" data="${data.id}"><i class="fa fa-check"></i></a>
+                    <!-- <a class="btn btn-info btn-sm" href="#"><i class="fas fa-pencil-alt"></i></a> -->
+                    <a class="btn btn-danger btn-sm delete-btn" href="#" data="${data.id}"><i class="fas fa-trash"></i></a>
+                  </td> -->
+                </tr>`;
+            }
+          })
+          $('tbody').html(html);
+          $('.btn-success').click(function (e) {
+            e.preventDefault();
+            let id = $(this).attr('data');
+            $.ajax({
+              type: "POST",
+              url: "/api/webapi/admin/rechargeApprove",
+              data: {
+                id: id,
+                type: 'confirm'
+              },
+              dataType: "json",
+              success: function (response) {
+                Swal.fire(
+                  'Good job!',
+                  'You clicked the button!',
+                  'success'
+                )
+                setTimeout(() => {
+                  location.reload();
+                }, 100);
+              }
+            });
+          });
+          $('.btn-danger').click(function (e) {
+            e.preventDefault();
+            let id = $(this).attr('data');
+            $.ajax({
+              type: "POST",
+              url: "/api/webapi/admin/rechargeApprove",
+              data: {
+                id: id,
+                type: 'delete'
+              },
+              dataType: "json",
+              success: function (response) {
+                setTimeout(() => {
+                  location.reload();
+                }, 100);
+                Swal.fire(
+                  'Good job!',
+                  'You clicked the button!',
+                  'success'
+                )
+              }
+            });
+          });
+        }
+        const currentURL = window.location.href;
+        // Parse the URL to get the search parameters
+        const urlSearchParams = new URLSearchParams(window.location.search);
+        let today = false;
+        if (urlSearchParams.size > 0) {
+          today = true;
+        }
+        $.ajax({
+          type: "POST",
+          url: "/api/webapi/admin/recharge",
+          data: {
+            todaydata: today,
+          },
+          dataType: "json",
+          success: function (response) {
+            show(response.datas2)
+          }
+        });
+      </script>
+</body>
+
+</html>

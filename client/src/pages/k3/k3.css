@@ -1,0 +1,147 @@
+.k3tl-box{
+    height: 7.9333rem;
+   
+    background-color: var(--green);
+    border-radius: .48667rem;
+    position: relative;
+    padding: .6667rem;
+}
+.k3tl-box::after{
+    content: "";
+    display: block;
+    width: .3333rem;
+    height: 2.09333rem;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 0;
+    background-color: var(--green-500);
+    border-radius: 0 .3333rem .3333rem 0;
+    right: -.3333rem;
+}
+
+.k3tl-box::before{
+    content: "";
+    display: block;
+    width: .3333rem;
+    height: 2.09333rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 0;
+    background-color: var(--green-500);
+    border-radius: .3333rem 0 0 .3333rem;
+    left: -.3333rem;
+}
+.k3tl-box .box{
+    background: var(--green-800);
+    border-radius: .13333rem;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+      align-items: center;
+    padding: .13333rem;
+}
+.k3tl-box .box::after,.k3tl-box .box::before{
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: .58667rem solid transparent;
+    border-bottom: .58667rem solid transparent;
+    content: "";
+    z-index: 3;
+}
+.k3tl-box .box::before{
+    left: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-right: 1.53333rem solid transparent;
+    border-left: 1.53333rem solid var(--green-500);
+}
+.k3tl-box .box::after{
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-left: 1.53333rem solid transparent;
+    border-right: 1.53333rem solid var(--green-500);
+}
+.k3tl-box .box>div{
+    width: calc((100% - 0rem) / 3);
+    height: 5.9333rem;
+    background-color: var(--gray-500);
+    border-radius: .53333rem;
+    position: relative;
+    background-position: center;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    margin: 3px;
+    display: flex;
+    justify-content: center;
+    
+}
+.k3tl-box .box .rotate-dice{
+    width: 4.5rem;
+    height: 5.9333rem;
+    /* animation: roll 1s infinite; */
+    position: relative;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.k3tl-box .box>div::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    z-index: 2;
+    box-shadow: inset 0 -.13333rem .13333rem #0000004d, inset 0 .13333rem .13333rem #0000004d;
+}
+.k3tl-box .box .num1{
+    background-image: url(../../assets/num1.png);
+  
+}
+.k3tl-box .box .num2{
+    background-image: url(../../assets/num2.png);
+}
+.k3tl-box .box .num3{
+    background-image: url(../../assets/num3.png);
+}
+.k3tl-box .box .num4{
+    background-image: url(../../assets/num4.png);
+}
+.k3tl-box .box .num5{
+    background-image: url(../../assets/num5.png);
+}
+.k3tl-box .box .num6{
+    background-image: url(../../assets/num6.png);
+}
+@keyframes roll {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(360deg); }
+    /* 100% { transform: rotate(0deg); } */
+}
+.ball-section .num:nth-child(odd) .ball{
+    background: url(../../assets/redBall.png);
+    width: 3rem;
+    height: 3rem;
+    object-fit: scale-down;
+    background-size: cover;
+    color: var(--red-color-200);
+}
+.ball-section .num:nth-child(even) .ball{
+    background-image: url(../../assets/greenBall.png);
+    width: 3rem;
+    height: 3rem;
+    object-fit: scale-down;
+    background-size: cover;
+    color: var(--green-500);
+}

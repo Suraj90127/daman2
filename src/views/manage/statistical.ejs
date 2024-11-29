@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Statistics</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+  <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+
+<style>
+  a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: #192434;
+  }
+
+
+  [class*=sidebar-dark-] .sidebar a {
+    color: #9cc6ff;
+  }
+
+  .dark-mode .content-wrapper {
+    background-color: #0e131b;
+    color: #fff;
+  }
+
+
+  .dark-mode .navbar-dark {
+    background-color: #003264;
+    border-color: #000000;
+  }
+
+
+  .nav-sidebar .nav-item>.nav-link {
+    margin-bottom: .2rem;
+  }
+</style>
+
+<body class="dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+  <div class="wrapper">
+    <%- include('nav') %>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Statistical Data</h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-5 d-flex">
+            <form method="get" class="d-flex align-middle">
+              <input type="date" class="form-control" name="datechoice" value="<%= data %>" required>
+              <button class="btn btn-success ml-2" type="submit">Search</button>
+            </form>
+          </div>
+          <div class="col-5"><%= data %></div>
+        </div>
+        <!-- /.container-fluid -->
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- Member Info Box -->
+            <div class="col-md-3 col-sm-6 col-12" onclick="location.href='/admin/manager/members'">
+              <div class="info-box">
+                <span class="info-box-icon bg-info"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Total Members</span>
+                  <span class="info-box-number totalMember">0</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+
+            <!-- Win Info Box -->
+            <div class="col-md-3 col-sm-6 col-12" onclick="location.href='/admin/manager/betting?today=true'">
+              <div class="info-box">
+                <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Today Bets</span>
+                  <span class="info-box-number todaybets">0</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+            <!-- Win Info Box -->
+            <div class="col-md-3 col-sm-6 col-12" onclick="location.href='/admin/manager/betting'">
+              <div class="info-box">
+                <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Total Bets</span>
+                  <span class="info-box-number totalbets">0</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+            <!-- Win Info Box -->
+            <div class="col-md-3 col-sm-6 col-12" onclick="location.href='/admin/manager/betting?today=win'">
+              <div class="info-box">
+                <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Wins Count</span>
+                  <span class="info-box-number totalWinCount">0</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+            <div class="col-md-3 col-sm-6 col-12" onclick="location.href='/admin/manager/betting?today=win'">
+              <div class="info-box">
+                <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Wins</span>
+                  <span class="info-box-number totalWin">0</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+
+            <!-- Loss Info Box -->
+            <div class="col-md-3 col-sm-6 col-12" onclick="location.href='/admin/manager/betting?today=loss'">
+              <div class="info-box">
+                <span class="info-box-icon bg-danger"><i class="far fa-flag"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Losses Count</span>
+                  <span class="info-box-number totalLossCount">0</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+            <div class="col-md-3 col-sm-6 col-12" onclick="location.href='/admin/manager/betting?today=loss'">
+              <div class="info-box">
+                <span class="info-box-icon bg-danger"><i class="far fa-flag"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Losses</span>
+                  <span class="info-box-number totalLoss">0</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+            <!-- Locked Accounts Info Box -->
+            <div class="col-md-3 col-sm-6 col-12" onclick="location.href='/admin/manager/members?today=locked'">
+              <div class="info-box">
+                <span class="info-box-icon bg-warning"><i class="fa fa-user-times" aria-hidden="true"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Locked Accounts</span>
+                  <span class="info-box-number totalMemberFail">0</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+            <!-- Total Deposits Info Box -->
+            <div class="col-md-3 col-sm-6 col-12" onclick="location.href='/admin/manager/rechargeRecord'">
+              <div class="info-box shadow-sm">
+                <span class="info-box-icon bg-success"><i class="fa fa-check" aria-hidden="true"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Total Deposits</span>
+                  <span class="info-box-number totalRecharge">0</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+
+            <!-- Deposits Today Info Box -->
+            <div class="col-md-3 col-sm-6 col-12" onclick="location.href='/admin/manager/rechargeRecord?today=true'">
+              <div class="info-box shadow-sm">
+                <span class="info-box-icon bg-success"><i class="fa fa-check" aria-hidden="true"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Deposits Today</span>
+                  <span class="info-box-number totalRechargeToday">0</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+
+            <!-- Total Withdrawals Info Box -->
+            <div class="col-md-3 col-sm-6 col-12" onclick="location.href='/admin/manager/withdrawRecord'">
+              <div class="info-box shadow">
+                <span class="info-box-icon bg-warning"><i class="fa fa-university" aria-hidden="true"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Total Withdrawals</span>
+                  <span class="info-box-number totalwithdraw">0</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+
+            <!-- Withdrawals Today Info Box -->
+            <div class="col-md-3 col-sm-6 col-12" onclick="location.href='/admin/manager/withdrawRecord?today=true'">
+              <div class="info-box shadow">
+                <span class="info-box-icon bg-warning"><i class="fa fa-university" aria-hidden="true"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Withdrawals Today</span>
+                  <span class="info-box-number totalwithdrawToday">0</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+
+            <!-- Net Earnings Info Box -->
+            <div class="col-md-3 col-sm-6 col-12">
+              <div class="info-box shadow">
+                <span class="info-box-icon totalTodays bg-success"><i class="fa fa-balance-scale" aria-hidden="true"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Total P/L</span>
+                  <span class="info-box-number pl">0</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+            <!-- Net Earnings Info Box -->
+            <div class="col-md-3 col-sm-6 col-12">
+              <div class="info-box shadow">
+                <span class="info-box-icon totalTodays bg-success"><i class="fa fa-balance-scale" aria-hidden="true"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Today P/L</span>
+                  <span class="info-box-number plToday">0</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+            <!-- Net Earnings Info Box -->
+            <div class="col-md-3 col-sm-6 col-12">
+              <div class="info-box shadow">
+                <span class="info-box-icon totalTodays bg-success"><i class="fa fa-balance-scale" aria-hidden="true"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Net Earnings</span>
+                  <span class="info-box-number totalToday">0</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+          </div>
+
+          <table id="data-table" style="display:none;">
+
+          </table>
+
+
+          <div class="row info-box">
+            <div class="form-group" style="width: 100%;">
+              <div class="text-center">
+                <label for="telegram">Export Data</label>
+              </div>
+              <button type="button" onclick="location.href='/admin/manager/export/todayrecharge?today=<%= data %>&purpose=todayrecharge'" class="btn btn-primary" style="width: 100%;margin-bottom:5px;">Today Recharge Export</button>
+
+              <button type="button" onclick="location.href='/admin/manager/export/todayrecharge?today=<%=data %>&purpose=totalrecharge'" class="btn btn-primary" style="width: 100%;margin-bottom:5px;">Total Recharge Export</button>
+
+              <button type="button" onclick="location.href='/admin/manager/export/todayrecharge?today=<%= data %>&purpose=totalwithdarwal'" class="btn btn-primary" style="width: 100%;margin-bottom:5px;">Total Withdrawal Export</button>
+
+              <button type="button" onclick="location.href='/admin/manager/export/todayrecharge?today=<%= data %>&purpose=todaywithdarwal'" class="btn btn-primary" style="width: 100%;margin-bottom:5px;">Today Withdrawal Export</button>
+
+              <button type="button" onclick="location.href='/admin/manager/export/todayrecharge?today=<%= data %>&purpose=todaybetting'" class="btn btn-primary" style="width: 100%;margin-bottom:5px;">Today Betting Export</button>
+
+              <button type="button" onclick="location.href='/admin/manager/export/todayrecharge?today=<%= data %>&purpose=totalbetting'" class="btn btn-primary" style="width: 100%;margin-bottom:5px;">Total Betting Export</button>
+            </div>
+          </div>
+          <!-- Create Partner Account Form -->
+          <div class="row info-box">
+            <div class="form-group" style="width: 100%;">
+              <div class="text-center">
+                <label for="telegram">Create Partner Account</label>
+              </div>
+              <label for="username" style="color: #3498db;">Username</label>
+              <input type="text" class="form-control" id="username" placeholder="Enter username" value=""><br>
+              <label for="password" style="color: #3498db;">Password</label>
+              <input type="text" class="form-control" id="password" placeholder="Enter password" value=""><br>
+              <button type="submit" class="btn btn-primary create_ctv" style="width: 100%;">Submit</button>
+            </div>
+          </div>
+
+
+
+
+
+          <!-- Increase/Decrease Points/Money for a Partner Form -->
+          <div class="row info-box">
+            <div class="form-group" style="width: 100%;">
+              <div class="text-center">
+                <label for="phone">Increase/Decrease Points/Money for a Partner</label>
+              </div>
+              <label for="phone" style="color: #3498db;">Username</label>
+              <input type="text" class="form-control" id="phone2" placeholder="Enter partner username" value=""><br>
+              <label for="buff-three" style="color: #3498db;">Increase | Decrease</label>
+              <select class="form-select mb-4" id="buff-three" style="width: 100%;padding: 5px;">
+                <option selected value="">-------- Select Function --------</option>
+                <option value="1">Add Money (+)</option>
+                <option value="2">Deduct Money (-)</option>
+              </select>
+              <label for="money-buff-three" style="color: #3498db;">Amount</label>
+              <input type="text" class="form-control" id="money-buff-three" placeholder="Enter amount" value=""><br>
+              <button type="submit" class="btn btn-primary buff-three" style="width: 100%;">Submit</button>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+
+      <a id="back-to-top" href="#" class="btn btn-primary back-to-top" role="button" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- jQuery -->
+  <script src="/plugins/jquery/jquery.min.js"></script>
+  <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/dist/js/adminlte.min.js"></script>
+  <script src="/js/admin/admin.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+
+  <script>
+    $(window).on('load', function() {
+      $.ajax({
+        type: "POST",
+        url: "/api/webapi/admin/statistical",
+        data: {
+          today: "<%= data %>",
+        },
+        dataType: "json",
+        success: function(response) {
+          let usersOnline = (response.usersOnline) ? response.usersOnline : 0;
+          let win = (response.win) ? response.win : 0;
+          let loss = (response.loss) ? response.loss : 0;
+          let bet = (response.bet) ? response.bet : 0;
+          let betToday = (response.betToday) ? response.betToday : 0;
+          let usersOffline = (response.usersOffline) ? response.usersOffline : 0;
+          let recharges = (response.recharges) ? response.recharges : 0;
+          let withdraws = (response.withdraws) ? response.withdraws : 0;
+          let rechargeToday = (response.rechargeToday) ? response.rechargeToday : 0;
+          let withdrawToday = (response.withdrawToday) ? response.withdrawToday : 0;
+          let pl = (response.pl) ? response.pl : 0;
+          let pltoday = (response.pltoday) ? response.pltoday : 0;
+          $('.totalMember').text(usersOnline);
+          $('.totalWin').text(win);
+          $('.totalWinCount').text(response.wincount ? response.wincount : 0);
+          $('.totalbets').text(bet);
+          $('.todaybets').text(betToday);
+          $('.totalLoss').text(loss);
+          $('.totalLossCount').text(response.losscount ? response.losscount : 0);
+          $('.totalMemberFail').text(usersOffline);
+          $('.totalRecharge').text(recharges);
+          $('.totalwithdraw').text(withdraws);
+          $('.totalRechargeToday').text(rechargeToday);
+          $('.totalwithdrawToday').text(withdrawToday);
+
+          $('.plToday').html(pltoday);
+          $('.pl').html(pl);
+          $('.totalToday').html(recharges - withdraws);
+          if (rechargeToday - withdrawToday < 0) {
+            $('.totalTodays').removeClass('bg-success');
+            $('.totalTodays').addClass('bg-danger');
+          } else {
+            $('.totalTodays').addClass('bg-success');
+            $('.totalTodays').removeClass('bg-danger');
+
+          }
+
+          let tabledata = `
+                <tr><th>Category</th><th>Amount</th></tr>
+                <tr><td>Total Member</td><td>${usersOnline}</td></tr>
+                <tr><td>Total Win</td><td>${win}</td></tr>
+                <tr><td>Total Win Count</td></tr>
+                <tr><td>${response.wincount ? response.wincount : 0}</td></tr>
+                <tr><td>Total Bets</td><td>${bet}</td></tr>
+                <tr><td>Today Bets</td><td>${betToday}</td></tr>
+                <tr><td>Total Loss</td><td>${loss}</td></tr>
+                <tr><td>Total Loss Count</td><td>${response.losscount ? response.losscount : 0}</td></tr>
+                <tr><td>Locked Amount</td><td>${usersOffline}</td></tr>
+                <tr><td>Total Member</td><td>${usersOnline}</td><td>Total Member</td><td>${usersOnline}</td></tr>
+                <tr><td>Total Deposite</td><td>${recharges}</td></tr>
+                <tr><td>Total Withdraw</td><td>${withdraws}</td></tr>
+                <tr><td>Depposite Today</td><td>${rechargeToday}</td></tr>
+                <tr><td>Withdra Today</td><td>${withdrawToday}</td></tr>
+                <tr><td>Total PL</td><td>${pl}</td></tr>
+                <tr><td>Today PL</td><td>${pltoday}</td></tr>
+                <tr><td>Net Earnings</td><td>${(recharges - withdraws)}</td></tr>
+                `;
+
+          $('#data-table').html(tabledata);
+        }
+      });
+    });
+
+
+    $('.buff-three').click(function(e) {
+      e.preventDefault();
+      let select = $('#buff-three').val();
+      let money = $('#money-buff-three').val();
+      let phone = $('#phone2').val();
+      console.log(select);
+      console.log(money);
+      console.log(phone);
+      if (select && money) {
+        $.ajax({
+          type: "POST",
+          url: "/admin/manager/createBonus",
+          data: {
+            select: select,
+            type: 'three',
+            money: money,
+            phone: phone,
+          },
+          dataType: "json",
+          success: function(response) {
+            if (response.status == true) {
+              Swal.fire({
+                icon: 'success',
+                title: `${response.message}`,
+              })
+            } else {
+              Swal.fire({
+                icon: 'error',
+                title: `${response.message}`,
+              })
+            }
+          }
+        });
+      } else {
+        alert('请输入完整信息');
+      }
+    });
+
+    $('.buff-one').click(function(e) {
+      e.preventDefault();
+      let select = $('#buff-one').val();
+      let money = $('#money-buff-one').val();
+      let phone = $('#phone').val();
+      if (select && money) {
+        $.ajax({
+          type: "POST",
+          url: "/admin/manager/createBonus",
+          data: {
+            select: select,
+            type: 'one',
+            money: money,
+            phone: phone,
+          },
+          dataType: "json",
+          success: function(response) {
+            if (response.status == true) {
+              Swal.fire({
+                icon: 'success',
+                title: `${response.message}`,
+              })
+            } else {
+              Swal.fire({
+                icon: 'error',
+                title: `${response.message}`,
+              })
+            }
+          }
+        });
+      } else {
+        alert('请输入完整信息');
+      }
+    });
+
+    $('.buff-all').click(function(e) {
+      e.preventDefault();
+      let select = $('#buff-all-ctv').val();
+      let money = $('#money-buff-all').val();
+      if (select && money) {
+        $.ajax({
+          type: "POST",
+          url: "/admin/manager/createBonus",
+          data: {
+            select: select,
+            type: 'all',
+            money: money,
+          },
+          dataType: "json",
+          success: function(response) {
+            if (response.status == true) {
+              Swal.fire({
+                icon: 'success',
+                title: `${response.message}`,
+              })
+            } else {
+              Swal.fire({
+                icon: 'error',
+                title: `${response.message}`,
+              })
+            }
+          }
+        });
+      } else {
+        alert('请输入完整信息');
+      }
+    });
+
+    $('.create_ctv').click(function(e) {
+      e.preventDefault();
+      let username = $('#username').val().trim();
+      let password = $('#password').val().trim();
+      if (username && password) {
+        $.ajax({
+          type: "POST",
+          url: "/admin/manager/create/ctv",
+          data: {
+            username: username,
+            password: password,
+          },
+          dataType: "json",
+          success: function(response) {
+            if (response.status == true) {
+              Swal.fire({
+                icon: 'success',
+                title: `${response.message}`,
+              })
+            } else {
+              Swal.fire({
+                icon: 'error',
+                title: `${response.message}`,
+              })
+            }
+          }
+        });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Please enter complete information',
+        })
+      }
+    });
+  </script>
+
+</body>
+
+</html>

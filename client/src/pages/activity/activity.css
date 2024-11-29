@@ -1,0 +1,162 @@
+.dailytask-banner{
+    background-image: url("../../assets/dailly-task-banner.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    padding: 10px;
+}
+.jackpot-banner{
+    background-image: url("../../assets/superJackpotb.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    padding: 10px;
+}
+.jackpot-rule-banner{
+    background-image: url("../../assets/superJackpotRulebg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    padding: 15px;
+}
+.member-package-banner{
+    background: url("../../assets/member-package-banner.png"), linear-gradient(103deg, var(--yellow-200) 4.77%, var(--red-color-100) 96.1%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    padding: 15px 20px;
+    
+}
+.daily-signin-banner{
+    background: url("../../assets/attendance-bg.png"), linear-gradient(103deg, var(--red-color-200) 4.77%, var(--red-color-200) 96.1%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    padding: 15px ;
+    background-position: center;
+    
+}
+.daily-signin-banner .atten{
+    background-color: var(--white);
+       clip-path: polygon(100% 0, 90% 50%, 100% 100%, 0 100%, 0 0);
+}
+.member-top-banner{
+    background: url("../../assets/mem-head.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    /* padding: 15px 20px; */
+    padding: 5px;
+    padding-left: 4rem;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 600;
+   
+    text-align: center;
+
+    
+}
+.member-package{
+      background: linear-gradient(270deg, #FF8A86 0%, #FFAE9A 100%);
+     border-radius: 0 0 .26667rem .26667rem;
+}
+.member-money-bg{
+    background: url("../../assets/bg-head-mem.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+.heading-h1{
+    font-size: 21px;
+    font-weight: 600;
+}
+.task-record .css-heg063-MuiTabs-flexContainer{
+    margin-top: 10px;
+}
+.task-record .css-1h9z7r5-MuiButtonBase-root-MuiTab-root{
+    border-radius: 10px;
+    width: 50%;
+    background: var( --bg-color-l);
+    color: var(--grey-100);
+    font-weight: 600;
+    text-transform: lowercase;
+    font-size: 15px;
+}
+
+.task-record .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+   background:var(--Gradient-1, linear-gradient(93deg, var(--mediam-blue) 7.38%, var(--bgblue) 94.48%));;
+   color:white;
+   border: none;
+}
+.task-record .css-1aquho2-MuiTabs-indicator{
+    display: none;
+}
+
+.container::-webkit-scrollbar {
+    height: 0px; 
+  }
+.scroll-none::-webkit-scrollbar {
+    height: 0px; 
+  }
+
+
+
+.first-text{
+    /* padding: 10px; */
+    /* text-align: center; */
+  
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+
+
+.first-text ul li {
+    background: var(--bg-nav);
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    /* color:black; */
+}
+
+.first-text ul li .first-c {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.first-text p{
+    color: var(--grey-100);
+}
+
+
+.first-text ul li .color-gray {
+    color: var(--grey-100);
+    font-size: 12px;
+    margin: 7px 0;
+}
+
+.first-text ul li .bottom-c {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.first-text ul li .bottom-c .slider-box {
+
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 18px;
+    justify-content: center;
+    background-color: var(--bg-color-l);
+}
+
+.first-text ul li .bottom-c button {
+
+    /* border: 1px solid #ea8b12; */
+    padding: 3px 13px;
+    border-radius: 5px;
+    /* color: #ea8b12; */
+}

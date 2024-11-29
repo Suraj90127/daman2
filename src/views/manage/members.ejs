@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Member List</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/dist/css/adminlte.min.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
+  <style>
+    .block-click {
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<style>
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: #192434;
+}
+.nav-sidebar .nav-item>.nav-link {
+    margin-bottom: .2rem;
+    /* border-radius: 1.13333rem; */
+}
+
+
+.navbar-dark {
+    background-color: #003264;
+    border-color: #4b545c;
+}
+
+[class*=sidebar-dark-] .sidebar a {
+    color: #9cc6ff;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 4px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.content-wrapper {
+    background-color: #0e131b;
+}
+
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #192434;
+    background: #141b26;
+    color: white;
+}
+
+
+.card-header {
+    background-color: #192434;
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    padding: .75rem 1.25rem;
+    position: relative;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+
+.navbar-dark {
+    background-color: #003264;
+    border-color: #557b9d;
+}
+.content .card{
+  
+  background-color: #0e131b !important;
+}
+
+
+      </style>
+
+<body class="hold-transition sidebar-mini">
+  <div class="wrapper">
+    <%- include('nav') %>
+      <div class="content-wrapper">
+        <section class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1 class="text-white">Member List</h1>
+              </div>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </section>
+
+        <div class="form-group" style="text-align: center">
+          <div class="d-flex">
+
+            <select id="status" class="form-control" style="width: auto;background-color: #141b26; color: white;">
+              <option value="">All Status</option>
+              <option value="1">Active</option>
+              <option value="2">Deactive</option>
+            </select>
+            <input type="text" id="search" placeholder="Enter the member you are looking for" style="background-color: #141b26;color: white;" />
+          </div>
+          <button id="searchBtn" class="btn btn-primary">Search</button>
+        </div>
+
+        <!-- Main content -->
+        <section class="content">
+          <!-- Default box -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Member List</h3>
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body p-0" style="overflow-y: hidden">
+              <table class="table table-striped projects" id="table1">
+                <thead>
+                  <tr>
+                    <th class="text-center">#</th>
+                    <th class="text-center">Mobile No.</th>
+                    <th class="text-center">Position</th>
+                    <th class="text-center">Refer code</th>
+                    <th class="text-center">Refer By</th>
+                    <th class="text-center">NeedBet</th>
+                    <th class="text-center">Amount</th>
+                    <th class="text-center">Password</th>
+                    <th class="text-center">Status</th>
+                    <th class="text-center">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- #region -->
+                </tbody>
+              </table>
+            </div>
+       
+            <nav aria-label="Page navigation example" style="margin-top: 20px; display: flex; justify-content: center;background-color: #192434;">
+              <ul class="pagination" id="paginationContainer">
+                <!-- Pagination will be dynamically generated here -->
+              </ul>
+            </nav>
+          </div>
+        </section>
+      </div>
+  </div>
+  <script src="/plugins/jquery/jquery.min.js"></script>
+  <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/dist/js/adminlte.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+  <script src="/js/admin/admin.js"></script>
+
+  <script>
+    const Render = (datas) => {
+      let html = '';
+      datas.map((data) => {
+        html += `
+        <tr class="text-center" style="">
+          <td>${data.id_user}</td>
+          <td>
+            <b style="color: #2003db">${data.phone}</b>
+          </td>
+          <td>
+            <b class="${(data.level == 1) ? 'text-danger' : ''}">${(data.level == 1) ? 'ADMIN' : 'USER'}</b>
+          </td>
+          <td>
+            <b>${data.code}</b>
+          </td>
+          <td>
+            <b>${data.invite}</b>
+          </td>
+          <td>
+            <b>${data.needbet}</b>
+          </td>
+          <td>
+            <b>${data.money}</b>
+          </td>
+          <td>
+            <b>${data.plain_password}</b>
+          </td>
+          <td class="project-state">
+            ${(data.status == 1) ? '<span class="badge badge-success">Active</span>' : '<span class="badge badge-warning">Banned</span>'}
+          </td>
+          <!--<td class="project-state">
+            <span class="badge badge-warning">Offline</span>
+          </td>
+          <td class="project-state">
+            <span class="badge badge-success">Online</span>
+          </td> -->
+          <td class="project-actions text-center" style="min-width: 100px">
+            <a class="btn btn-primary btn-sm confirm-btn" href="/admin/member/info/${data.phone}">
+              <i class="fa-solid fa-street-view"></i> View</a>
+           
+            ${(data.status == 1) ? `<a class="btn btn-info btn-sm btn-danger" id="${data.id}" href="#">
+           <i class="fa-solid fa-lock"></i> Lock
+            </a>` : ''}
+            ${(data.status == 2) ? `<a class="btn btn-info btn-sm btn-info1" id="${data.id}" href="#">
+              <i class="fa-solid fa-lock-open"></i> Unlock
+            </a>` : ''}
+            <a class="btn btn-warning btn-sm redirect-btn" href="#" data-token="${data.token}">
+                <i class="fa-solid fa-external-link-alt"></i>Subrodinate
+            </a>
+            <!--<a class="btn btn-danger btn-sm delete-btn" href="#">
+              <i class="fas fa-trash"></i> Banner
+            </a>-->
+          </td>
+        </tr>`;
+        $("tbody").html(html);
+      });
+      
+      $(document).on('click', '.redirect-btn', function (e) {
+            e.preventDefault();
+            const token = $(this).data('token');
+            const redirectUrl = `https://daman2.vip/#/promotion/TeamSubrodinate?auth=${token}`;
+            window.open(redirectUrl, '_blank'); // Open in a new tab
+        });
+
+      $('.btn-danger').click(function (e) {
+        e.preventDefault();
+        let check = confirm("Are you sure you want to lock this account?");
+        let id = $(this).attr('id');
+        if (check) {
+          $.ajax({
+            type: "POST",
+            url: "/api/webapi/admin/banned",
+            data: {
+              id: id,
+              type: 'close'
+            },
+            dataType: "json",
+            success: function (response) {
+              alert(response.message);
+              location.reload();
+            }
+          });
+        }
+      });
+
+      $('.btn-info1').click(function (e) {
+        e.preventDefault();
+        let check = confirm("Are you sure you want to unlock this account?");
+        let id = $(this).attr('id');
+        if (check) {
+          $.ajax({
+            type: "POST",
+            url: "/api/webapi/admin/banned",
+            data: {
+              id: id,
+              type: 'open'
+            },
+            dataType: "json",
+            success: function (response) {
+              alert(response.message);
+              location.reload();
+            }
+          });
+        }
+      });
+
+    }
+    
+    $(document).on('click', '.pagination-link', function (e) {
+      e.preventDefault();
+      const page = parseInt($(this).data('page'));
+      fetchData(page);
+    });
+
+    const fetchData = (page=1) => {
+      let limit = 50
+      let value = $('#search').val().toLowerCase();
+      let status = $('#status').val();
+      let pageno = (page - 1) * limit;
+
+      $.ajax({
+        type: "POST",
+        url: "/api/webapi/admin/listMember",
+        data: {
+          typeid: "1",
+          pageno: pageno,
+          limit: limit,
+          language: "vi",
+          value: value,
+          status: status // Send status filter to backend
+        },
+        dataType: "json",
+        success: function (response) {
+          if (response.status === true) {
+            Render(response.datas);
+            renderPagination(response.page_total, page); // Update pagination UI
+          }
+        }
+      });
+    };
+
+    // Function to render pagination links
+    const renderPagination = (pageTotal, currentPage) => {
+      const maxVisiblePages = 8; // Number of visible pagination links
+      let paginationHtml = '';
+
+      // Calculate the start and end page numbers to display
+      let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+      let endPage = Math.min(pageTotal, startPage + maxVisiblePages - 1);
+
+      // Adjust startPage and endPage if they go beyond the range
+      if (endPage - startPage + 1 < maxVisiblePages) {
+        startPage = Math.max(1, endPage - maxVisiblePages + 1);
+      }
+
+      // Add "Previous" link
+      if (currentPage > 1) {
+        paginationHtml += `<li class="page-item">
+                                <a class="page-link pagination-link" href="#" data-page="${currentPage - 1}">Previous</a>
+                            </li>`;
+      }
+
+      // Add page links
+      for (let i = startPage; i <= endPage; i++) {
+        paginationHtml += `<li class="page-item ${currentPage === i ? 'active' : ''}">
+                                <a class="page-link pagination-link" href="#" data-page="${i}">${i}</a>
+                           </li>`;
+      }
+
+      // Add "Next" link
+      if (currentPage < pageTotal) {
+        paginationHtml += `<li class="page-item">
+                                <a class="page-link pagination-link" href="#" data-page="${currentPage + 1}">Next</a>
+                            </li>`;
+      }
+
+      $('#paginationContainer').html(paginationHtml);
+    };
+
+    // Search button click event
+    $('#searchBtn').click(function () {
+      fetchData();
+    });
+
+    // Keyup event for search input
+    $('#search').on('keyup', function () {
+      fetchData();
+    });
+
+    // Pagination click events
+    $(document).on('click', '.pagination-link', function () {
+      pageno = ($(this).data('page') - 1) * limit;
+      fetchData();
+    });
+    fetchData();
+    </script>
+    <script src="https://kit.fontawesome.com/5c9f82cc45.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

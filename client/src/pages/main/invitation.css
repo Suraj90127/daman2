@@ -1,0 +1,33 @@
+.invitation-banner{
+    background-image: url("../../assets/invitation_bg.png"), linear-gradient(94deg, #f99937 2.72%, #ff6922 43.54%, #ff8039 98.54%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    padding: 10px;
+    padding-bottom: 30px;
+}
+
+.line-two {
+    border: .01333rem dashed var(--bg-color-l);
+    margin: 1.048rem auto;
+    position: relative;
+    width: calc(100% - 1.14667rem);
+    padding: 0 .13333rem;
+    margin-top: 22px;
+}
+.line-two::before, .line-two::after{
+    content: "";
+    display: block;
+    border-radius: 50%;
+    background-color: var(--bgbody);
+    position: absolute;
+    width: 1.056rem;
+    height: 1.056rem;
+    top: -.528rem;
+}
+.line-two::before{
+    left: -18px;
+}
+.line-two::after{
+    right: -18px;
+}

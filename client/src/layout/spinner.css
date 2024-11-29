@@ -1,0 +1,30 @@
+.loader{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    z-index: 555555555555;
+    background: #00000073;
+}
+.loader img {
+    transition: all 0.2s linear;
+    animation: rotate 2s linear infinite; /* Added duration, timing function, and infinite loop */
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg); /* Start at 0 degrees */
+    }
+    100% {
+        transform: rotate(360deg); /* End at 360 degrees */
+    }
+}
